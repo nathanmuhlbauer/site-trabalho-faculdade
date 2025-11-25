@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+body{
+    background-color: #000;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* Cabeçalho */
+
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 999999999999999;
+    padding: 40px 0;
+}
+
+header .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logotipo {
+    color: #fff;
+    font-size: 40px
+}
+    
+header nav.menu ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+}
+
+nav.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilo slider */
+.slider{
+    height: 100vh;
+    position: relative;
+}
+
+.slider .slider-container .slider-box{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+.slider .slider-box assets{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider .slider-box::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #000, transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider .slider-box .texto-slider{
+    position: absolute;
+    left: 30%;
+    top: 25%;
+    color: #fff;
+    z-index: 1;
+
+    width: 80%;
+    max-width: 900px;
+}
+
+.slider .slider-box .texto-slider h2{
+    font-size: 7rem;
+}
+
+@keyframes animaçaoTexto{
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slider .slider-box.ativo h2,
+ .slider .slider-box.ativo p{
+    transform: translateY(60px);
+    opacity: 0;
+    animation: animaçaoTexto .5s ease-in-out .7s forwards;
+}
+
+.slider .slider-box.ativo h2{
+    animation-delay: 1s;
+}
+
+.slider-container .slider-box.ativo{
+    opacity: 1;
+    z-index: 11111;
+}
+
+/* Estilo setas */
+.setas{
+    width: 100%;
+    height: 100%;
+    padding: 0 4%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 22222;
+}
+
+.setas button{
+    width: 40px;
+    height: 41px;
+    background-color: #747474;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: .2s;
+}
+
+.setas button:hover{
+    background-color: #fff;
+}
+
+/* Estilo botões navegação */
+.btn-nav-box{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    z-index: 777777;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-nav-box .btn-nav{
+    width: 30px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-nav-box .btn-nav:hover{
+    background-color: #fff;
+}
+
+.btn-nav-box .btn-nav.ativo{
+    background-color: #fff;
+}
